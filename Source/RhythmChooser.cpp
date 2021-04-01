@@ -30,7 +30,7 @@ RhythmListComponent::RhythmListComponent(Configuration& config)
     header->addColumn ("Tempo", 3, 80, 20, -1, TableHeaderComponent::visible | TableHeaderComponent::sortable);
     header->addColumn ("", 4, 20, 20, 20, TableHeaderComponent::visible);
     header->setStretchToFitActive(true);
-    beatList.setHeader(header);
+    beatList.setHeader(std::unique_ptr<TableHeaderComponent> (std::move(header)));
     addAndMakeVisible(beatList);
     beatList.getViewport()->setScrollOnDragEnabled(true);
     beatList.getViewport()->setScrollBarsShown(true, false);
@@ -139,9 +139,9 @@ void RhythmListComponent::sortOrderChanged (int newSortColumnId, bool isForwards
 }
 
 RhythmFileChooser::RhythmFileChooser(Configuration& config)
-: fileBrowser(FileBrowserComponent( FileBrowserComponent::saveMode | FileBrowserComponent::canSelectFiles | FileBrowserComponent::canSelectMultipleItems,
+: config(config),
+    fileBrowser(FileBrowserComponent( FileBrowserComponent::saveMode | FileBrowserComponent::canSelectFiles | FileBrowserComponent::canSelectMultipleItems,
     File::getSpecialLocation(File::SpecialLocationType::userDocumentsDirectory), nullptr, nullptr ))
-, config(config)
 {
     addAndMakeVisible(fileBrowser);
     fileBrowser.addListener(this);

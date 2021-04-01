@@ -4,9 +4,12 @@
  * Forked from https://github.com/stevefolta/SFZero
  * For license info please see the LICENSE file distributed with this source code
  *************************************************************************************/
-#ifndef SF2READER_H_INCLUDED
-#define SF2READER_H_INCLUDED
+//#ifndef SF2READER_H_INCLUDED
+//#define SF2READER_H_INCLUDED
 
+#pragma once
+
+#include "../JuceLibraryCode/JuceHeader.h"
 #include "SF2.h"
 #include <memory>
 namespace sfzero
@@ -29,11 +32,11 @@ namespace sfzero
     private:
         SF2Sound& sf2Sound;
         //juce::FileInputStream *file_;
-        juce::ScopedPointer<juce::FileInputStream> fileInputStream;
+        std::unique_ptr<FileInputStream> fileInputStream;
         
         void addGeneratorToRegion(word genOper, SF2::genAmountType *amount, Region *region);
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SF2Reader)
     };
 }
 
-#endif // SF2READER_H_INCLUDED
+//#endif // SF2READER_H_INCLUDED

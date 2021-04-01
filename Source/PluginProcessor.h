@@ -131,7 +131,7 @@ private:
     void processDeferredEvents(MidiBuffer& midiMessages, double endTime, double normalizedSamplePeriod);
 
     // Parameter mirrors and getters
-    float* tempo{ nullptr };
+    std::atomic<float>* tempo{ nullptr };
 
     template<class T, class Ptr> static T checkNullWithDefault(Ptr* pointer, T def)
     {

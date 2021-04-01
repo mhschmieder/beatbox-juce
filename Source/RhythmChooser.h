@@ -29,7 +29,7 @@ class RhythmFileChooser: public Component, public FileBrowserListener
 {
 public:
 	RhythmFileChooser(Configuration& config);
-	void paint(Graphics & g);
+	void paint(Graphics & g) override;
 
 	// FileBrowserListener callbacks
 	void selectionChanged() override {}
@@ -49,14 +49,14 @@ class RhythmListComponent: public Component, public TableListBoxModel
 {
 public:
 	RhythmListComponent(Configuration& config);
-	void paint(Graphics & g);
+	void paint(Graphics & g) override;
 	
 	// TableListBoxModel callbacks
 	int getNumRows() override;
 	void paintRowBackground(Graphics & g, int rowNumber, int width, int height, bool rowIsSelected ) override;
 	void paintCell(Graphics & g, int rowNumber, int columnId, int width, int height, bool rowIsSelected) override;
-	void cellDoubleClicked(int rowNumber, int columnId, const MouseEvent& evt);
-	void cellClicked(int rowNumber, int columnId, const MouseEvent& evt);
+	void cellDoubleClicked(int rowNumber, int columnId, const MouseEvent& evt) override;
+	void cellClicked(int rowNumber, int columnId, const MouseEvent& evt) override;
 	void sortOrderChanged (int newSortColumnId,	bool isForwards) override;
 
 private:

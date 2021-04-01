@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="G4S86n" name="BeatBox" projectType="audioplug" jucerVersion="5.4.3"
-              bundleIdentifier="cc.ferrand.beatbox" pluginCharacteristicsValue="pluginIsSynth,pluginProducesMidiOut,pluginWantsMidiIn"
+<JUCERPROJECT id="G4S86n" name="BeatBox" projectType="audioplug" bundleIdentifier="cc.ferrand.beatbox"
+              pluginCharacteristicsValue="pluginIsSynth,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginManufacturer="Paul Ferrand" pluginName="BeatBox" pluginDesc="Generates and controls rhythms live from MIDI loops"
               pluginManufacturerCode="PFE" aaxIdentifier="cc.ferrand.beatbox"
-              pluginVSTNumMidiInputs="1" pluginVSTNumMidiOutputs="1" cppLanguageStandard="latest"
+              pluginVSTNumMidiInputs="1" pluginVSTNumMidiOutputs="1" cppLanguageStandard="17"
               version="1.0.0" companyCopyright="(c) 2019 Paul Ferrand" companyWebsite="www.ferrand.cc"
-              companyEmail="paulfd@outlook.fr" reportAppUsage="0" displaySplashScreen="0"
-              headerPath="../../Source">
+              companyEmail="paulfd@outlook.fr" reportAppUsage="0" displaySplashScreen="1"
+              headerPath="../../Source" jucerFormatVersion="1">
   <MAINGROUP id="SI9max" name="BeatBox">
     <GROUP id="{24A5363E-529F-6A57-5537-570E41BF2396}" name="Source">
       <GROUP id="{12C14BAB-6F84-3C8A-0FE5-0901EE8DD990}" name="sfzero">
@@ -86,27 +86,6 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <VS2017 targetFolder="Builds/VisualStudio2017">
-      <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug"/>
-        <CONFIGURATION isDebug="0" name="Release"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_audio_basics" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_core" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../../JUCE/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../../JUCE/modules"/>
-      </MODULEPATHS>
-    </VS2017>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" headerPath="../../Source"/>
@@ -130,8 +109,8 @@
     </LINUX_MAKE>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug"/>
-        <CONFIGURATION isDebug="0" name="Release"/>
+        <CONFIGURATION isDebug="1" name="Debug" osxCompatibility="10.15 SDK" osxArchitecture="64BitIntel"/>
+        <CONFIGURATION isDebug="0" name="Release" osxCompatibility="10.15 SDK" osxArchitecture="64BitIntel"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="../../juce"/>
@@ -170,6 +149,27 @@
         <MODULEPATH id="juce_audio_basics" path="../../juce"/>
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug"/>
+        <CONFIGURATION isDebug="0" name="Release"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra"/>
+        <MODULEPATH id="juce_gui_basics"/>
+        <MODULEPATH id="juce_graphics"/>
+        <MODULEPATH id="juce_events"/>
+        <MODULEPATH id="juce_data_structures"/>
+        <MODULEPATH id="juce_cryptography"/>
+        <MODULEPATH id="juce_core"/>
+        <MODULEPATH id="juce_audio_utils"/>
+        <MODULEPATH id="juce_audio_processors"/>
+        <MODULEPATH id="juce_audio_plugin_client"/>
+        <MODULEPATH id="juce_audio_formats"/>
+        <MODULEPATH id="juce_audio_devices"/>
+        <MODULEPATH id="juce_audio_basics"/>
+      </MODULEPATHS>
+    </VS2019>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
@@ -190,6 +190,7 @@
   <LIVE_SETTINGS>
     <WINDOWS/>
     <LINUX headerPath="../../Source"/>
+    <OSX/>
   </LIVE_SETTINGS>
   <JUCEOPTIONS JUCE_VST3_CAN_REPLACE_VST2="0" JUCE_STRICT_REFCOUNTEDPOINTER="1"
                JUCE_JACK="1"/>

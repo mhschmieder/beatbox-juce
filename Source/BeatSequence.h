@@ -40,8 +40,8 @@ public:
     }
     MidiNote(const MidiMessage& message, double noteOffDelay) 
     : noteNumber { message.isNoteOnOrOff() ? message.getNoteNumber() : 0 },
-        velocity { message.getVelocity() },
         channel{ message.getChannel() },
+        velocity { message.getVelocity() },
         timestamp { message.getTimeStamp() },
         noteOffDelay { noteOffDelay } 
     {

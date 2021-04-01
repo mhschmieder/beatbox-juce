@@ -29,7 +29,7 @@ class SfzFileChooser: public Component, public FileBrowserListener
 {
 public:
     SfzFileChooser(Configuration& config);
-    void paint(Graphics & g);
+    void paint(Graphics & g) override;
 
     // FileBrowserListener callbacks
     void selectionChanged() override {}

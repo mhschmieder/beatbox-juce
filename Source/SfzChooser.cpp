@@ -28,7 +28,7 @@ SfzListComponent::SfzListComponent(Configuration& config)
     header->addColumn ("Name", 1, 600, 100, -1, TableHeaderComponent::visible);
     header->addColumn ("", 2, 20, 20, 20, TableHeaderComponent::visible);
     header->setStretchToFitActive(true);
-    sfzList.setHeader(header);
+    sfzList.setHeader(std::unique_ptr<TableHeaderComponent> (std::move(header)));
     addAndMakeVisible(sfzList);
     sfzList.getViewport()->setScrollOnDragEnabled(true);
     sfzList.getViewport()->setScrollBarsShown(true, false);
