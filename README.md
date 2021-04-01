@@ -13,6 +13,10 @@ although I only tested Windows and Linux, and a tiny bit of Android.
 Contributions and comments are welcome, as well as beat description files.
 I'll put up some forum or sharing platform at some point.
 
+Note that this new fork is a minor update of the master branch, to take care of compiler errors resulting from changes to the JUCE 6 API, most of which in turn have to do with JUCE now following guidelines set forth by the C++17 standard.
+
+The Projucer project was also updated to follow the common practice of supporting the latest OS and tools, excepting macOS where the next-most-current release is generally the target (in this case macOS 10.15 aka Catalina).
+
 [![Travis](https://img.shields.io/travis/com/sfztools/beatbox.svg?label=Linux-macOS&style=popout&logo=travis)](https://travis-ci.com/sfztools/beatbox)
 [![AppVeyor](https://img.shields.io/appveyor/ci/sfztools/beatbox.svg?label=Windows&style=popout&logo=appveyor)](https://ci.appveyor.com/project/sfztools/beatbox)
 
